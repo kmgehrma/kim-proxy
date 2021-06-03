@@ -1,0 +1,44 @@
+# Artillery
+config:
+  target: "http://localhost:3000"
+  phases:
+  - duration: 60
+    arrivalRate: 1
+    name: Warm up (1 virtual user every second for 60 seconds)
+  - duration: 60
+    arrivalRate: 10
+    name: Light load (10 virtual users every second for 60 seconds)
+  - duration: 60
+    arrivalRate: 100
+    name: Moderate load (100 virtual users every second for 60 seconds)
+  - duration: 60
+    arrivalRate: 1000
+    name: Heavy load (1000 virtual users every second for 60 seconds)
+  variables:
+    id:
+    - "9999999"
+    - "9500000"
+    - "9250000"
+    - "9000000"
+    - "8900000"
+    - "8500000"
+    - "8400000"
+    - "8300000"
+    - "8200000"
+    - "7900000"
+    - "7800000"
+    - "7000000"
+    - "6990000"
+    - "6000000"
+    - "5550000"
+    - "5000000"
+    - "4000000"
+    - "3500000"
+    - "3000000"
+    - "2000000"
+
+scenarios:
+- name: "Search"
+  flow:
+    - get:
+        url: "/{{ id }}"

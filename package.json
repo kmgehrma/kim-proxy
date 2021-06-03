@@ -1,11 +1,12 @@
 {
-  "name": "proxy",
+  "name": "kim-proxy",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./server/index.js",
-    "start": "node ./server/index.js"
+    "start": "node ./server/index.js",
+    "stress-test": "$(npm bin)/artillery run get-requests.yml"
   },
   "repository": {
     "type": "git",
@@ -22,9 +23,11 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mongoose": "^5.12.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "newrelic": "^7.5.0"
   },
   "devDependencies": {
+    "artillery": "^1.7.2",
     "dotenv": "^8.2.0",
     "eslint": "^7.22.0",
     "eslint-config-airbnb": "^18.2.1",
